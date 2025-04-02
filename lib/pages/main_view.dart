@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/widgets/difficulty_control.dart';
+import 'package:lab2/widgets/ingredient_control.dart';
+import 'package:lab2/widgets/kitchen_control.dart';
+import 'package:lab2/widgets/price_control.dart';
+import 'package:lab2/widgets/recipe_list.dart';
+import 'package:lab2/widgets/time_control.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -6,7 +12,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(children: [_controlPanel(context), _recipeArea(context)]),
+      body: Row(children: [_controlPanel(context)]),
     );
   }
 
@@ -15,17 +21,54 @@ class MainView extends StatelessWidget {
     width: width,
     color: const Color.fromARGB(255, 193, 210, 218),
     child: Column(
-      children: [Text("data"),
-      Text("dasta")],
+  children: <Widget>[
+    Text("Receptsök"),
+    Align(
+      alignment: Alignment.centerLeft,
+          child: Container(
+            color: Colors.transparent,
+            child: Text(
+              "Hitta ett recept som passar genom att ändra på inställningarna nedan.",
+            ),
+          ),
+        ),
+    Align(
+      alignment: Alignment.centerLeft,
+      child: Row(children: [Text("Ingrediens:"), IngredientControl()]
+      )
+    ),
+    Align(
+      alignment: Alignment.centerLeft,
+      child: Row(children: [Text("Kök:"), KitchenControl()]
+      )
+    ),
+    Text("Svårighetsgrad"),
+    Align(alignment: Alignment.centerLeft,
+    child: DifficulyControl()
+    ),
+
+    Text("Maxpris"),
+    Align(
+      alignment: Alignment.center,
+      child: PriceControl()
+    ),
+    Text("\n Maxtid"),
+    Align(
+      alignment: Alignment.center,
+      child: TimeControl()
+    ),
+
+      ],
     )
   );
   }
 
-  Widget _recipeArea(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: const Color.fromARGB(255, 204, 216, 176),
-      ),
-    );
-  }
+//   Widget _recipeArea(context) {
+//   return Expanded(
+//     child: Container(
+//       //color: const Color.fromARGB(255, 204, 216, 176),
+//       child: RecipeList(),
+//     ),
+//  );
+// }
 }
