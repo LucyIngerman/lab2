@@ -13,7 +13,9 @@ class RecipeDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     var uiController = Provider.of<UIController>(context, listen: false);
 
-    return Column(children: [IconButton(onPressed: () {uiController.deselectRecipe();}, icon: Icon(Icons.close))]);
+    return Column(children: [IconButton(onPressed: () {uiController.deselectRecipe();}, icon: Icon(Icons.close)), Text(recipe.name),SizedBox(width: 500, height: 500, child: recipe.customImage())]);
+
+    
 
     // return IconButton(
     //   icon: Icon(Icons.close),
