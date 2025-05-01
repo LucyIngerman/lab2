@@ -3,7 +3,8 @@ import 'package:lab2/app_theme.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 
 import 'package:lab2/util/main_ingredient.dart';
-import 'package:provider/provider.dart';class IngredientControl extends StatelessWidget {
+import 'package:provider/provider.dart';
+class IngredientControl extends StatelessWidget {
   const IngredientControl({super.key});
 
   @override
