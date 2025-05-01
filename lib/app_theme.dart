@@ -16,4 +16,8 @@ class AppTheme {
   static ColorScheme colorScheme = ColorScheme.fromSeed(
            seedColor: Colors.green,     // Grönt får funka
    );
+   static const TextStyle mediumHeading = TextStyle(
+  fontSize: 22,
+  fontWeight: FontWeight.w400,
+);
 }

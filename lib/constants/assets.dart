@@ -10,8 +10,7 @@ class Assets {
   static const String flagIndia = 'assets/images/icon_flag_india.png';
   static const String flagSweden = 'assets/images/icon_flag_sweden.png';
   static const String difficultyEasy = 'assets/images/icon_difficulty_easy.png';
-  static const String difficultyMedium =
-      'assets/images/icon_difficulty_medium.png';
+  static const String difficultyMedium ='assets/images/icon_difficulty_medium.png';
   static const String difficultyHard = 'assets/images/icon_difficulty_hard.png';
   static const String timeIcon = 'assets/images/icon_time.png';
   static const String logo = 'assets/images/logo.png';
