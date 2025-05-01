@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/app_theme.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 
 import 'package:lab2/util/main_ingredient.dart';
@@ -10,21 +11,34 @@ import 'package:provider/provider.dart';class IngredientControl extends Stateles
     var recipeHandler = Provider.of<RecipeHandler>(context, listen: false);
     const labels = MainIngredient.labels;
 
-    return DropdownMenu<String>(
+    
+
+return Row(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Text('Ingrediens:'),
+    SizedBox(width: AppTheme.paddingSmall),
+    DropdownMenu<String>(
       width: 164,
-      enableFilter: false,      // Disables filtering (prevents typing)
+      enableFilter: false, // Disables filtering (prevents typing)
       requestFocusOnTap: false, // Prevents keyboard from opening
-      initialSelection: labels[0],  // Starts with the first element selected
+      initialSelection: labels[0],
       dropdownMenuEntries: [
         for (int i = 0; i < labels.length; i++)
-           DropdownMenuEntry(
-           value: labels[i],
-           label: labels[i],
-        ),
-      ],
-      onSelected: (value){
-    recipeHandler.setMainIngredient(value);
-   },
-    );
+          DropdownMenuEntry(
+            value: labels[i],
+            label: labels[i],
+            leadingIcon: MainIngredient.icons[i]
+          ),
+        ],
+        onSelected: (value){
+          recipeHandler.setMainIngredient(value);
+        },
+      ),
+    ]
+);
+
+
   }
 }
+

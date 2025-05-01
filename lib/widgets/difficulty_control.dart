@@ -30,7 +30,7 @@ Widget build(BuildContext context) {
               });
             recipeHandler.setDifficulty(value);
             },
-         ),  // RadioListTile
+         ),
       ],
   );
 }
