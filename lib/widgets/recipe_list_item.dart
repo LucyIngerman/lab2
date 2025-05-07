@@ -1,4 +1,6 @@
 
+
+
 import 'package:flutter/material.dart';
 import 'package:lab2/app_theme.dart';
 import 'package:lab2/model/recipe_database/recipe.dart';
@@ -13,7 +15,9 @@ class RecipeListItem extends StatelessWidget {
   final void Function() onTap;
   Widget _image(recipe) {
   var square = ClipRect(
+
     child: SizedBox(
+
       width: 104, // Square width
       height: 104, // Square height
       child: FittedBox(fit: BoxFit.cover, child: recipe.image),
@@ -33,7 +37,9 @@ class RecipeListItem extends StatelessWidget {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+
       child: SizedBox(
+
         height: 128,
         child: Row(
           children: [
@@ -48,7 +54,9 @@ class RecipeListItem extends StatelessWidget {
                   maxLines: 2,
                 ),
                 Row(
+
                   children: [Image(image: MainIngredient.icon(recipe.mainIngredient, width: 24, height: 24)!.image, width: 24, height: 24), Image(image: Difficulty.icon(recipe.difficulty, width: 64, height: 32)!.image, width: 64, height: 32), Text("${recipe.time.toString()} minuter     "), Text("${recipe.price.toString()}Kr")]),
+
               ],
             ),
           ),

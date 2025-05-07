@@ -5,6 +5,7 @@ import 'package:lab2/widgets/kitchen_control.dart';
 import 'package:lab2/widgets/price_control.dart';
 import 'package:lab2/widgets/recipe_area.dart';
 import 'package:lab2/widgets/time_control.dart';
+import 'package:lab2/widgets/logo.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -20,10 +21,12 @@ class MainView extends StatelessWidget {
 
   Widget _controlPanel(BuildContext context, {double width = 320}) {
   return Container(
+    
     width: width,
     color: const Color.fromARGB(255, 193, 210, 218),
     child: Column(
   children: <Widget>[
+    const Logo(),
     Text("Receptsök"),
     Align(
       alignment: Alignment.centerLeft,
@@ -34,16 +37,9 @@ class MainView extends StatelessWidget {
             ),
           ),
         ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Row(children: [Text("Ingrediens:"), IngredientControl()]
-      )
-    ),
-    Align(
-      alignment: Alignment.centerLeft,
-      child: Row(children: [Text("Kök:"), KitchenControl()]
-      )
-    ),
+    IngredientControl(),
+    KitchenControl(),
+
     Text("Svårighetsgrad"),
     Align(alignment: Alignment.centerLeft,
     child: DifficulyControl()
