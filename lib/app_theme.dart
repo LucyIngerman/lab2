@@ -14,10 +14,22 @@ class AppTheme {
 
  // App color
   static ColorScheme colorScheme = ColorScheme.fromSeed(
-           seedColor: Colors.green,     // Grönt får funka
+           seedColor: const Color.fromARGB(255, 68, 48, 5),     // Grönt får funka
    );
    static const TextStyle mediumHeading = TextStyle(
   fontSize: 22,
   fontWeight: FontWeight.w400,
+  
 );
+static const TextStyle smallHeading = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    letterSpacing: 0.15,
+  );
+
+  // Add the missing largeHeading style
+  static const TextStyle largeHeading = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w400,
+  );
 }

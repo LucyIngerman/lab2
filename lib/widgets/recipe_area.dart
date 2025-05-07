@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lab2/app_theme.dart';
 import 'package:lab2/ui_controller.dart';
 import 'package:lab2/widgets/recipe_detail.dart';
 import 'package:lab2/widgets/recipe_list.dart';
 import 'package:provider/provider.dart';
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
 
 class RecipeArea extends StatelessWidget {
   const RecipeArea({super.key});
@@ -26,7 +18,11 @@ class RecipeArea extends StatelessWidget {
     } else {
        contents = RecipeDetail(uiController.selectedRecipe!);
     }
-    return Expanded(child: contents);
+    return Expanded(
+      child: Padding(
+        padding:  EdgeInsets.only(top: AppTheme.paddingSmall),
+        child: contents,
+      )
+    );
   }
 }
-

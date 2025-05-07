@@ -18,19 +18,28 @@ Widget build(BuildContext context) {
   var recipeHandler = Provider.of<RecipeHandler>(context, listen: false);
   return Column(
     children: [
-      for (final label in Difficulty.labels)
+      for (int i = 0; i < Difficulty.labels.length; i++)  
         RadioListTile<String>(
-          dense: true,
-          title: Text(label),
-          value: label,
-          groupValue: _difficulty,
-          onChanged: (value) {
-            setState(() {
-              _difficulty = value!;
+            dense: true,
+            contentPadding: const EdgeInsets.only(left: 24.0),
+            value: Difficulty.labels[i],
+            groupValue: _difficulty,
+            onChanged: (value) {
+              setState(() {
+                _difficulty = value!;
               });
-            recipeHandler.setDifficulty(value);
+              Provider.of<RecipeHandler>(context, listen: false).setDifficulty(value!);
             },
-         ),
+            title: Row(
+              children: [
+                if (Difficulty.icons[i] != null) ...[
+                  Difficulty.icons[i]!,
+                  const SizedBox(width: 8),
+                ],
+                Text(Difficulty.labels[i]),
+              ],
+            ),
+          ),
       ],
   );
 }
