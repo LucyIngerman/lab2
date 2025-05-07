@@ -19,7 +19,7 @@ class MainIngredient {
     Image.asset(width: 16, Assets.vegIcon),
   ];
 
-  static Image? icon(String ingredient, {double width = 16}) {
+  static Image? icon(String ingredient, {double width = 16, double height = 16}) {
     var assetName = '';
 
     switch (ingredient) {
@@ -32,6 +32,6 @@ class MainIngredient {
       case vegetarian:
         assetName = Assets.vegIcon;
     }
-    return Image.asset(assetName, width: width);
+    return Image.asset(assetName, width: width, height: height, fit: BoxFit.contain);
   }
 }

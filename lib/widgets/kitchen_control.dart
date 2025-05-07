@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lab2/app_theme.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 import 'package:lab2/util/cuisine.dart';
-import 'package:lab2/util/main_ingredient.dart';
 import 'package:provider/provider.dart';
 
 class KitchenControl extends StatelessWidget{

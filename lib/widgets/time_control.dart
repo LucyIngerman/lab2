@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lab2/app_theme.dart';
-import 'package:lab2/constants/assets.dart';
 import 'package:lab2/model/recipe_database/recipe_handler.dart';
 import 'package:provider/provider.dart';
 

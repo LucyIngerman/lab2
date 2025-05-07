@@ -16,7 +16,7 @@ class Difficulty {
     Image.asset(height: 16, Assets.difficultyHard),
   ];
 
-  static Image? icon(String difficulty, {double width = 16}) {
+  static Image? icon(String difficulty, {double width = 16, height = 16}) {
     var assetName = '';
 
     switch (difficulty) {
@@ -27,6 +27,6 @@ class Difficulty {
       case hard:
         assetName = Assets.difficultyHard;
     }
-    return Image.asset(assetName, width: width);
+    return Image.asset(assetName, width: width, height: height, fit: BoxFit.contain,);
   }
 }
