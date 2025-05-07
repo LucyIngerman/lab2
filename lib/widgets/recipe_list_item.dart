@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:lab2/model/recipe_database/recipe.dart';
 import 'package:lab2/util/cuisine.dart';
@@ -15,6 +16,7 @@ class RecipeListItem extends StatelessWidget {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: Material(
         color: Colors.transparent,
@@ -28,6 +30,7 @@ class RecipeListItem extends StatelessWidget {
             height: 128,
             padding: const EdgeInsets.all(8),
             child: Row(
+
               children: [
                 _image(recipe),
                 const SizedBox(width: 12),
@@ -68,6 +71,7 @@ class RecipeListItem extends StatelessWidget {
                     ],
                   ),
                 ),
+
               ],
             ),
           ),

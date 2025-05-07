@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/assets.dart'; // se till att denna pekar rätt till din logobild
+
 
 class Logo extends StatelessWidget {
   const Logo({super.key});
@@ -12,6 +14,7 @@ class Logo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
+
           padding: const EdgeInsets.only(top: 8.0, right: 4),
           child: Image.asset(
             Assets.logo, // tex: 'assets/images/logo.png'
@@ -40,6 +43,7 @@ class Logo extends StatelessWidget {
                       fontSize: 64,
                       color: Color(0xFFFFAC33),
                     ),
+
                   ),
                 ),
               ),
