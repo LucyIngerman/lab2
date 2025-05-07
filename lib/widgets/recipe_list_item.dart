@@ -1,8 +1,5 @@
 
-
-
 import 'package:flutter/material.dart';
-import 'package:lab2/app_theme.dart';
 import 'package:lab2/model/recipe_database/recipe.dart';
 import 'package:lab2/util/cuisine.dart';
 import 'package:lab2/util/difficulty.dart';
@@ -13,24 +10,6 @@ class RecipeListItem extends StatelessWidget {
 
   final Recipe recipe;
   final void Function() onTap;
-  Widget _image(recipe) {
-  var square = ClipRect(
-
-    child: SizedBox(
-
-      width: 104, // Square width
-      height: 104, // Square height
-      child: FittedBox(fit: BoxFit.cover, child: recipe.image),
-    ),
-  );
-  var flagImage = Cuisine.flag(recipe.cuisine, width: 24.0);
-  
-  return Stack(
-    children: [square, Positioned(bottom: 8, right: 8, child: flagImage!)],
-  );
- }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -38,31 +17,90 @@ class RecipeListItem extends StatelessWidget {
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
 
-      child: SizedBox(
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          splashColor: Theme.of(context).primaryColor.withAlpha(40),
+          hoverColor: Theme.of(context).primaryColor.withAlpha(20),
+          onTap: onTap,
+          child: Container(
+            height: 128,
+            padding: const EdgeInsets.all(8),
+            child: Row(
 
-        height: 128,
-        child: Row(
-          children: [
-          _image(recipe),
-          Expanded(
-            child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(recipe.name, style: AppTheme.mediumHeading),
-                Text(
-                  recipe.description,
-                  overflow: TextOverflow.ellipsis, 
-                  maxLines: 2,
+                _image(recipe),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        recipe.name,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        recipe.description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          SizedBox(child: MainIngredient.icon(recipe.mainIngredient, width: 24)),
+                          const SizedBox(width: 8),
+                          SizedBox(child: Difficulty.icon(recipe.difficulty, width: 48)),
+                          const SizedBox(width: 8),
+                          const Icon(Icons.schedule, size: 20),
+                          const SizedBox(width: 4),
+                          Text('${recipe.time} min'),
+                          const SizedBox(width: 8),
+                          
+                          Text('${recipe.price} kr'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                Row(
-
-                  children: [Image(image: MainIngredient.icon(recipe.mainIngredient, width: 24, height: 24)!.image, width: 24, height: 24), Image(image: Difficulty.icon(recipe.difficulty, width: 64, height: 32)!.image, width: 64, height: 32), Text("${recipe.time.toString()} minuter     "), Text("${recipe.price.toString()}Kr")]),
 
               ],
             ),
           ),
-        ],
+        ),
       ),
+    );
+  }
+
+  Widget _image(Recipe recipe) {
+    final square = ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: SizedBox(
+        width: 104,
+        height: 104,
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: recipe.image,
+        ),
       ),
+    );
+
+    final flagImage = Cuisine.flag(recipe.cuisine, width: 24.0);
+
+    return Stack(
+      children: [
+        square,
+        if (flagImage != null)
+          Positioned(bottom: 8, right: 8, child: flagImage),
+      ],
     );
   }
 }

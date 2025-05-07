@@ -4,7 +4,6 @@ import 'package:lab2/model/recipe_database/recipe_handler.dart';
 import 'package:lab2/pages/main_view.dart';
 import 'package:lab2/ui_controller.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 
 void main() {
@@ -30,8 +29,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Receptsök',
       theme: ThemeData(
+
         colorScheme: AppTheme.colorScheme,
-        textTheme: GoogleFonts.nunitoTextTheme(),
+        textTheme: AppTheme.textTheme,
+        useMaterial3: true,
         
         
       ),
